@@ -1,4 +1,6 @@
+
 # Best-Deals
+
 Mod3 project 
 
 e-commerce app 
@@ -53,34 +55,34 @@ Index page of all products
 
 
 User stories:
-
-. As a user I register
-. As a user I should be able to login / logout
-. As a user I should be able see my profile 
-. As a user I can sell item
-. As a user I can buy item
-. As a user I should be able to like item
-. As a user I should be able to update item
+. As a user I can post item *
+. As a user I should be able like  item *
+. As a user I should be able leave a review about item *
+. As a user I should be able to update item *
 . As a user I should be able to delete
-.  As a user I can see my cart
-. As a user I can checkout 
+<!-- . As a user I can see my cart -->
+
 
 
 Models : 
-User   
-UserProduct 
-Product  
-ProductCart 
-Cart
+User   ()
+userItem 
+item  
+like 
+review
+
+
 
 Models Relationships :
 	Users has many products through UserProducts 
 		Product belongs to User
 	Cart has many products through ProductCart
-		Product belongs to Cart
-Product has many products through ProductCart
+		Product belongs to Cart 
+        cart belongs to user
+    Product has many products through ProductCart
+
+
 
 
 
  
-
