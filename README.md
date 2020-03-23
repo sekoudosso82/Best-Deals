@@ -1,84 +1,50 @@
-
-# Best-Deals
-
+# Best-Deals 
 Mod3 project 
 
 e-commerce app 
 
 Features :  
-. login (with username- password- balance) /register
-. Profile
-. sell items
-. Form to sell items
-	. name
-	. price
-	. quantity
-	. type 
-	. image url
-. post item (fetch )
-
-			. update item
-					. get item  (fetch)
-					. make the modification and 
-					. patch(fetch)
-			. delete item
-					. get item  (fetch)
-					. delete  (fetch/ delete)
-
-. Buy items
-Index page of all products 
-. all products on page
-	name
-	price 
-	quantity
-	type-of-product
-. filter by type 
-. select item
-	. take to show page
-	. name
-	. price
-	. quantity
-	. type 
-	. image url
-	. add to cart 
-. like item 
-	. save to profile
-. save for later 
-
-
-			. cart 
-				. total 
-				. checkout 
-    			 
-
-
-
+    . login (only with unique userNmae)	
+    . post item (fetch )
+    . update item
+    . delete item
+    . review item
+        .update review
+        .delete review
+    . like item 
 
 User stories:
-. As a user I can post item *
-. As a user I should be able like  item *
-. As a user I should be able leave a review about item *
-. As a user I should be able to update item *
+. As a user I can post item 
+. As a user I should be able to update item 
 . As a user I should be able to delete
-<!-- . As a user I can see my cart -->
-
+. As a user I should be able leave a review about item 
+. As a user I should be able like  item 
 
 
 Models : 
-User   ()
-userItem 
-item  
-like 
-review
+    user   (name, location)
+    userItem (user_id, item_id)
+    item (name, price, quantity, imageUrl)
+    review( comment )
+    itemReview( item_id, review_id )
+
 
 
 
 Models Relationships :
-	Users has many products through UserProducts 
-		Product belongs to User
-	Cart has many products through ProductCart
-		Product belongs to Cart 
-        cart belongs to user
-    Product has many products through ProductCart
+	
+    users has many reviews
+    users has many items
+        
+    item has many reviews 
+    item belongs to user 
+
+    review belongs to item
+    review belongs to user
+
+
+ERD diagram 
+
+
 
 ERD diagram
