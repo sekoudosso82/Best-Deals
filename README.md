@@ -81,8 +81,4 @@ Models Relationships :
         cart belongs to user
     Product has many products through ProductCart
 
-
-
-
-
- 
+ERD diagram
