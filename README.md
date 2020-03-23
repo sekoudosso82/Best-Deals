@@ -20,16 +20,12 @@ User stories:
 . As a user I should be able leave a review about item 
 . As a user I should be able like  item 
 
-
 Models : 
     user   (name, location)
     userItem (user_id, item_id)
     item (name, price, quantity, imageUrl)
     review( comment )
     itemReview( item_id, review_id )
-
-
-
 
 Models Relationships :
 	
@@ -46,5 +42,3 @@ Models Relationships :
 ERD diagram 
 
 
-
-ERD diagram
