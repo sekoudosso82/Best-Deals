@@ -21,9 +21,9 @@ User stories:
 . As a user I should be able like  item 
 
 Models : 
-    user   (name, location)
+    user (name, location)
     userItem (user_id, item_id)
-    item (name, price, quantity, imageUrl)
+    item (name, imageUrl, description)
     review( comment )
     itemReview( item_id, review_id )
 
