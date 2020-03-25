@@ -1,0 +1,78 @@
+
+
+/* .background */
+
+    .background_pictue {
+        background-image: url("../iamges/unsplash.jpg");
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        z-index: -2;    
+    } 
+    
+/* nav  */
+
+    .navv{
+        background-color: purple;
+        font-size: 1.5em  
+    } 
+    
+   
+/* body */
+
+    h1{
+        text-align: center;
+        color: #005082;
+    }
+    
+    .container {
+        width:100%;
+        text-align:center;
+        overflow: auto; 
+    }  
+    
+   .item-div
+   {
+        width: 29%;
+        height: 250px;
+        float:left; /* add this */
+        overflow: auto;
+        border: 1px solid red;
+        background-color: blue(color: #000000);
+        color: green;
+        margin: 20px;
+        font-size: 1.5em;
+        border-width: 5px;
+    } 
+    
+    .itemImg{
+        height: 40%;
+        width: 60%;
+        margin-left: 10%;
+        margin-right: 20%;
+        margin-bottom: 5%;
+    }  
+    
+    a:after{
+        -webkit-transition: 5s;
+        transition: 5s;    
+    }
+    a:hover{
+        color: #6ab04c;
+        text-transform: uppercase;
+        width: 100%;
+        animation: text 15s 1;
+    }    
+    
+    .btn{
+        background-image:none;
+        background-color: goldenrod;
+    }
+
+    .btn:hover{
+        background-image:none;
+        background-color:#ff00ff;
+    }
+

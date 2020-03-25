@@ -23,7 +23,6 @@ Models :
     item (name, description, imageUrl ) 
     review( comment ) 
     
-
 Models Relationships :
 
     users has many reviews
