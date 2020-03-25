@@ -16,7 +16,9 @@
 
     .navv{
         background-color: purple;
-        font-size: 1.5em  
+        font-size: 1.5em;
+        padding-bottom: 5px;
+        padding-top: 5px;
     } 
     
    
@@ -36,11 +38,11 @@
    .item-div
    {
         width: 29%;
-        height: 250px;
+        height: 300px;
         float:left; /* add this */
         overflow: auto;
         border: 1px solid red;
-        background-color: blue(color: #000000);
+        background-color:#000000;
         color: green;
         margin: 20px;
         font-size: 1.5em;
@@ -48,10 +50,11 @@
     } 
     
     .itemImg{
-        height: 40%;
+        height: 50%;
         width: 60%;
-        margin-left: 10%;
+        padding: 5px;
         margin-right: 20%;
+        margin-left: 20%;
         margin-bottom: 5%;
     }  
     
