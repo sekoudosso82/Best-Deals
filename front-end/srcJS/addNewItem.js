@@ -4,11 +4,14 @@
 document.addEventListener('click', function(){
     if (event.target.innerText === "Add New Item"){
         console.log ("ok")
-        ceateNewItem()
+        let button = event.target
+        
+        console.log(button)
+        ceateNewItem(button)
     }       
 })
 
-function ceateNewItem() {
+function ceateNewItem(button) {
     let newForm = document.createElement("form")
     newForm.innerHTML = `
       <label>name:</label>
@@ -20,12 +23,15 @@ function ceateNewItem() {
       <label>imageUrl:</label>
       <input type="text" name="imageUrl" />
       <br/>
-      <input type="submit" />
+      <input class="subbnt" type="submit" value="Submit">
+      
     `
     const itemDiv = document.createElement('div')
     itemDiv.className = "item-div"
     itemDiv.append(newForm)
+    button.remove()
     document.body.prepend(itemDiv)
+    
     newForm.addEventListener('submit', function(event){
       event.preventDefault()
       let name = event.target.name.value
@@ -34,9 +40,9 @@ function ceateNewItem() {
       
       let newItem = { name: name, description: description, imageUrl: imageUrl, user_id: 1}
   
-    //   addItem(newItem)
-    
       itemDiv.remove()
+      let li = document.getElementById('addLi')
+      li.append(button)
      // update the db
       updateDb(newItem)
     })
@@ -55,6 +61,5 @@ function updateDb(item)
     })
     .then(response => response.json())
     // .then(console.log)
-    .then(function(item){ addItem(item) })
-                   
+    .then(function(item){ addItem(item) })         
 }
