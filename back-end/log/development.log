@@ -3971,3 +3971,1215 @@ Processing by Api::V1::ItemsController#index as */*
 Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 1.7ms | Allocations: 1243)
 
 
+Started GET "/api/v1/reviews" for ::1 at 2020-03-26 07:26:34 -0400
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ReviewsController#index as HTML
+  [1m[36mReview Load (4.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 6.4ms | Allocations: 2405)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:26:42 -0400
+Processing by Api::V1::ItemsController#index as HTML
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 8.0ms | ActiveRecord: 12.4ms | Allocations: 7022)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:29:37 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1262)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 07:31:31 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"MacBook", "description"=>"Used", "imageUrl"=>"https://unsplash.com/photos/dqRdtm2spBk", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"MacBook", "description"=>"Used", "imageUrl"=>"https://unsplash.com/photos/dqRdtm2spBk"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (8.7ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "MacBook"], ["description", "Used"], ["imageUrl", "https://unsplash.com/photos/dqRdtm2spBk"], ["created_at", "2020-03-26 11:31:31.638429"], ["updated_at", "2020-03-26 11:31:31.638429"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 78ms (Views: 1.0ms | ActiveRecord: 22.5ms | Allocations: 10481)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:31:40 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 1371)
+
+
+Started DELETE "/api/v1/items/9" for ::1 at 2020-03-26 07:31:44 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.7ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2913)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:31:46 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 64ms (Views: 63.1ms | ActiveRecord: 1.0ms | Allocations: 1246)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 07:32:58 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"MacBook", "description"=>"Used", "imageUrl"=>"https://media.gettyimages.com/photos/apple-macbook-air-session-for-apple-bookazine-taken-on-september-12-picture-id150604031?s=2048x2048", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"MacBook", "description"=>"Used", "imageUrl"=>"https://media.gettyimages.com/photos/apple-macbook-air-session-for-apple-bookazine-taken-on-september-12-picture-id150604031?s=2048x2048"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "MacBook"], ["description", "Used"], ["imageUrl", "https://media.gettyimages.com/photos/apple-macbook-air-session-for-apple-bookazine-taken-on-september-12-picture-id150604031?s=2048x2048"], ["created_at", "2020-03-26 11:32:58.535725"], ["updated_at", "2020-03-26 11:32:58.535725"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 3502)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:33:05 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started PATCH "/api/v1/items/3" for ::1 at 2020-03-26 07:34:29 -0400
+Processing by Api::V1::ItemsController#update as JSON
+  Parameters: {"name"=>"LG", "description"=>"New monitor 4k $650", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/HMUA2?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5%2C0.5&.v=1573666299753", "id"=>"3", "item"=>{"name"=>"LG", "description"=>"New monitor 4k $650", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/HMUA2?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5%2C0.5&.v=1573666299753"}}
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mItem Update (2.2ms)[0m  [1m[33mUPDATE "items" SET "description" = $1, "updated_at" = $2 WHERE "items"."id" = $3[0m  [["description", "New monitor 4k $650"], ["updated_at", "2020-03-26 11:34:29.202530"], ["id", 3]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 4.3ms | Allocations: 4168)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:34:40 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:39:07 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 1.1ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:43:50 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:44:53 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:46:11 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:47:15 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:47:25 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:48:24 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:48:48 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:50:30 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:51:11 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:52:02 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:52:41 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:53:09 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:53:51 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 07:54:38 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:52:27 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (2.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 2.6ms | Allocations: 1411)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:55:12 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.6ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:57:08 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1356)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:57:14 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:57:50 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 1.1ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:57:57 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 08:58:07 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.0ms | Allocations: 1353)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:01:48 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MLA22LL?wid=1144&hei=1144&fmt=jpeg&qlt=95&op_usm=0.5%2C0.5&.v=1496944005839", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MLA22LL?wid=1144&hei=1144&fmt=jpeg&qlt=95&op_usm=0.5%2C0.5&.v=1496944005839"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (6.8ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "iphone 11 max"], ["description", "Used"], ["imageUrl", "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MLA22LL?wid=1144&hei=1144&fmt=jpeg&qlt=95&op_usm=0.5%2C0.5&.v=1496944005839"], ["created_at", "2020-03-26 13:01:48.757933"], ["updated_at", "2020-03-26 13:01:48.757933"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 36ms (Views: 0.5ms | ActiveRecord: 13.6ms | Allocations: 3539)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:01:59 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 1472)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:03:59 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 1472)
+
+
+Started DELETE "/api/v1/items/11" for ::1 at 2020-03-26 09:04:03 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (5.9ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 6.5ms | Allocations: 2787)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:04:07 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 1.1ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:04:45 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:05:12 -0400
+Processing by Api::V1::ItemsController#index as HTML
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.1ms | Allocations: 1351)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:05:14 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 1.7ms | Allocations: 1353)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:06:52 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 1353)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:07:04 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "iphone 11 max"], ["description", "Used"], ["imageUrl", "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550"], ["created_at", "2020-03-26 13:07:04.039729"], ["updated_at", "2020-03-26 13:07:04.039729"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3511)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:07:08 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:07:15 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.5ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:08:19 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:08:55 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 1.2ms | Allocations: 1471)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:09:01 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (1.3ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:09:01.777929"], ["updated_at", "2020-03-26 13:09:01.777929"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 3501)
+
+
+Started DELETE "/api/v1/items/13" for ::1 at 2020-03-26 09:09:07 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (1.8ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:09:11 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 1.0ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:12:12 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.8ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:12:26 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:12:38 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 74ms (Views: 72.7ms | ActiveRecord: 1.2ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:14:20 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:14:27 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:15:09 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (2.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 2.5ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:15:14 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:15:25 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:16:11 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:16:59 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:24:54 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.9ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 1.9ms | Allocations: 1529)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:25:22 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:25:32 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:25:56 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (2.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 2.6ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:26:07 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:26:28 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:27:04 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:27:53 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 1471)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:28:07 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (2.4ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "iphone 11 max"], ["description", "Used"], ["imageUrl", "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg"], ["created_at", "2020-03-26 13:28:07.053195"], ["updated_at", "2020-03-26 13:28:07.053195"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 3528)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:35:05 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 1.7ms | Allocations: 1639)
+
+
+Started DELETE "/api/v1/items/14" for ::1 at 2020-03-26 09:35:11 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (1.7ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 2802)
+
+
+Started PATCH "/api/v1/items/6" for ::1 at 2020-03-26 09:35:38 -0400
+Processing by Api::V1::ItemsController#update as JSON
+  Parameters: {"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550", "id"=>"6", "item"=>{"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mItem Update (2.1ms)[0m  [1m[33mUPDATE "items" SET "name" = $1, "description" = $2, "imageUrl" = $3, "updated_at" = $4 WHERE "items"."id" = $5[0m  [["name", "iphone 11 max"], ["description", "Used"], ["imageUrl", "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-space-select-201807?wid=1808&hei=1680&fmt=jpeg&qlt=80&.v=1529520060550"], ["updated_at", "2020-03-26 13:35:38.160421"], ["id", 6]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 5.3ms | Allocations: 4121)
+
+
+Started PATCH "/api/v1/items/10" for ::1 at 2020-03-26 09:36:07 -0400
+Processing by Api::V1::ItemsController#update as JSON
+  Parameters: {"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg", "id"=>"10", "item"=>{"name"=>"iphone 11 max", "description"=>"Used", "imageUrl"=>"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg"}}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[36mItem Update (0.4ms)[0m  [1m[33mUPDATE "items" SET "name" = $1, "imageUrl" = $2, "updated_at" = $3 WHERE "items"."id" = $4[0m  [["name", "iphone 11 max"], ["imageUrl", "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg"], ["updated_at", "2020-03-26 13:36:07.195150"], ["id", 10]]
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:27:in `update'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 5.2ms | Allocations: 4095)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:36:19 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.4ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:39:55 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1475)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:40:20 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.6ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:40:27 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (3.0ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:40:27.207783"], ["updated_at", "2020-03-26 13:40:27.207783"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 6.5ms | Allocations: 3504)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:40:49 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1582)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:40:57 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (47.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 65ms (Views: 17.8ms | ActiveRecord: 47.0ms | Allocations: 1582)
+
+
+Started DELETE "/api/v1/items/15" for ::1 at 2020-03-26 09:41:04 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:42:04 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:43:17 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:43:20 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (3.4ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:43:20.639714"], ["updated_at", "2020-03-26 13:43:20.639714"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 4.8ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/16" for ::1 at 2020-03-26 09:44:13 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (1.6ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 16]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:44:15 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:44:20 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:44:20.243164"], ["updated_at", "2020-03-26 13:44:20.243164"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 3499)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:44:27 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 1.1ms | Allocations: 1582)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:44:37 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (1.5ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:44:37.219398"], ["updated_at", "2020-03-26 13:44:37.219398"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 5.3ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/17" for ::1 at 2020-03-26 09:44:42 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 2773)
+
+
+Started DELETE "/api/v1/items/18" for ::1 at 2020-03-26 09:44:44 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.8ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:45:49 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:46:09 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:46:09.897823"], ["updated_at", "2020-03-26 13:46:09.897823"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 1.7ms | Allocations: 3499)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:46:23 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 1.4ms | Allocations: 1582)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:46:38 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:46:38.833293"], ["updated_at", "2020-03-26 13:46:38.833293"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3502)
+
+
+Started DELETE "/api/v1/items/19" for ::1 at 2020-03-26 09:46:45 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2773)
+
+
+Started DELETE "/api/v1/items/20" for ::1 at 2020-03-26 09:46:46 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.4ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:46:49 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.7ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:51:15 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 1.8ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:51:17 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:51:58 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 1.0ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:51:59 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:52:00 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.7ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:53:40 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:53:46 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (2.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 2.5ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:53:49 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1474)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:54:12 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.6ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:54:26 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (5.6ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:54:26.703958"], ["updated_at", "2020-03-26 13:54:26.703958"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 3501)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:54:43 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:54:43.938775"], ["updated_at", "2020-03-26 13:54:43.938775"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 3499)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:54:52 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:54:52.592800"], ["updated_at", "2020-03-26 13:54:52.592800"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/21" for ::1 at 2020-03-26 09:54:55 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 2773)
+
+
+Started DELETE "/api/v1/items/22" for ::1 at 2020-03-26 09:54:56 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.6ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 2773)
+
+
+Started DELETE "/api/v1/items/23" for ::1 at 2020-03-26 09:54:56 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 3.5ms | Allocations: 2773)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:55:01 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:55:01.241003"], ["updated_at", "2020-03-26 13:55:01.241003"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/24" for ::1 at 2020-03-26 09:55:04 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"24"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.4ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 2773)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:55:56 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (1.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.5ms | Allocations: 1475)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:56:11 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:56:11.750845"], ["updated_at", "2020-03-26 13:56:11.750845"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 3500)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:56:39 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 1582)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:56:43 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:56:43.697833"], ["updated_at", "2020-03-26 13:56:43.697833"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/25" for ::1 at 2020-03-26 09:56:46 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"25"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.4ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2773)
+
+
+Started DELETE "/api/v1/items/26" for ::1 at 2020-03-26 09:56:48 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"26"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.4ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2773)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:57:34 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (2.0ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:57:34.325428"], ["updated_at", "2020-03-26 13:57:34.325428"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/27" for ::1 at 2020-03-26 09:57:39 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.4ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 27]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2773)
+
+
+Started GET "/api/v1/reviews" for ::1 at 2020-03-26 09:58:24 -0400
+Processing by Api::V1::ReviewsController#index as HTML
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/api/v1/reviews_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 789)
+
+
+Started GET "/api/v1/items" for ::1 at 2020-03-26 09:59:21 -0400
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mItem Load (2.0ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/controllers/api/v1/items_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 2.0ms | Allocations: 1474)
+
+
+Started POST "/api/v1/items" for ::1 at 2020-03-26 09:59:24 -0400
+Processing by Api::V1::ItemsController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "imageUrl"=>"", "user_id"=>1, "item"=>{"user_id"=>1, "name"=>"", "description"=>"", "imageUrl"=>""}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("user_id", "name", "description", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", ""], ["description", ""], ["imageUrl", ""], ["created_at", "2020-03-26 13:59:24.521399"], ["updated_at", "2020-03-26 13:59:24.521399"]]
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:21:in `create'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 3499)
+
+
+Started DELETE "/api/v1/items/28" for ::1 at 2020-03-26 09:59:27 -0400
+Processing by Api::V1::ItemsController#destroy as */*
+  Parameters: {"id"=>"28"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:40:in `find_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/items_controller.rb:32:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[36mItem Destroy (0.6ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 28]]
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/items_controller.rb:33:in `destroy'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 2773)
+
+

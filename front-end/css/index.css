@@ -72,6 +72,7 @@
     .btn{
         background-image:none;
         background-color: goldenrod;
+        
     }
 
     .btn:hover{
@@ -79,11 +80,9 @@
         background-color:#ff00ff;
     }
 
-    /* /* .container {
-        text-align: center;
+    .subbnt{
+        background-color: #3D9970;
+        margin-left: 30%;
+        margin-right: auto;
     }
-    
-    #log-in {
-        text-align: center; */
-  
 
