@@ -1,6 +1,6 @@
 
 // add new item 
-
+let divv = document.querySelector("div")
 document.addEventListener('click', function(){
     if (event.target.innerText === "Update"){
         console.log ("update")
@@ -9,6 +9,8 @@ document.addEventListener('click', function(){
 })
 
 function updateItem(button) {
+    let id = button.parentNode.dataset.id
+    
     let newForm = document.createElement("form")
     newForm.innerHTML = `
       <label>name:</label>
@@ -25,7 +27,7 @@ function updateItem(button) {
     const itemDiv = document.createElement('div')
     itemDiv.className = "item-div"
     itemDiv.append(newForm)
-    document.body.prepend(itemDiv)
+    document.body.prepend(itemDiv )
     newForm.addEventListener('submit', function(event){
       event.preventDefault()
       let name = event.target.name.value
@@ -33,9 +35,8 @@ function updateItem(button) {
       let imageUrl = event.target.imageUrl.value
       
       let newItem = {name: name, description: description, imageUrl: imageUrl}
-      let id = button.parentNode.dataset.id
-      console.log(id)
-      newForm.remove()
+      
+    //   newForm.remove()
       itemDiv.remove()
      // update the db
       updateItemDb(newItem, id)

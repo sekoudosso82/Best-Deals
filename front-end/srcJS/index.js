@@ -17,7 +17,7 @@ function addItem(item){
     <h3>${item.name}</h3>
     <h3>${item.description}</h3>
     <img class="itemImg" alt="" src=${item.imageUrl} />
-    <button data-purpose="delete">X</button>
+    <button data-purpose="delete">Delete</button>
     <button class="">Update</button>
     <button> Review </button>
   `
