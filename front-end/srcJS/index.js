@@ -1,4 +1,3 @@
-// import console = require("console");
 
 let div = document.querySelector("div")
 const ITEM_BASE_URL = "http://localhost:3000/api/v1/items"

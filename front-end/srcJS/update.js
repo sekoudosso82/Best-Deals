@@ -1,5 +1,5 @@
 
-// add new item 
+// update item 
 let divv = document.querySelector("div")
 document.addEventListener('click', function(){
     if (event.target.innerText === "Update"){
@@ -35,13 +35,11 @@ function updateItem(button) {
       let imageUrl = event.target.imageUrl.value
       
       let newItem = {name: name, description: description, imageUrl: imageUrl}
-      
-    //   newForm.remove()
+   
       itemDiv.remove()
-     // update the db
+     
       updateItemDb(newItem, id)
-    })
-    
+    })  
 }
 
 function updateItemDb(newi, i)

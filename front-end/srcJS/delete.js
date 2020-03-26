@@ -1,5 +1,5 @@
 
-// add new item 
+// delete an item 
 
 document.addEventListener('click', function(){
     if (event.target.innerText === "Delete")
@@ -14,7 +14,6 @@ function deleteItem(button) {
     console.log(id)
     button.parentNode.remove()
     deleteItemDb(id )
-   
 }
 
 function deleteItemDb(i)
