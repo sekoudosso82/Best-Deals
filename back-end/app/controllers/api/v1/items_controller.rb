@@ -29,8 +29,9 @@ class Api::V1::ItemsController < ApplicationController
     end 
 
     def destroy
-        # item = Item.find_by(id: params[:id])
-        @item.destroy  
+        item = Item.find_by(id: params[:id])
+        item.destroy  
+        render json: item, except: [:created_at, :updated_at]
     end
 
     private 
